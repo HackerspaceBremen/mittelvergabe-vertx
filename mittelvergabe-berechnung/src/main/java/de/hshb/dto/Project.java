@@ -6,46 +6,46 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Project implements Comparable<Project>{
+public class Project implements Comparable<Project> {
 
-	private String name;
+  private String name;
 
-	private double moneyNeeded;
+  private double moneyNeeded;
 
-	private double moneyAlready;
-	
-	private double moneyAdded;
+  private double moneyAlready;
 
-	private int votes;
+  private double moneyAdded;
 
-	public Project(JsonObject json) {
-		name = json.getString("name");
-		moneyNeeded = json.getDouble("moneyNeeded");
-		moneyAlready = json.getDouble("moneyAlready");
-		votes = json.getInteger("votes");
-		moneyAdded = 0.0;
-	}
-	
-	public JsonObject toJson(){
-		JsonObject json = new JsonObject();
-		json.put("name", name);
-		json.put("moneyNeeded", moneyNeeded);
-		json.put("moneyAlready", moneyAlready);
-		json.put("votes", votes);
-		json.put("moneyAdded", moneyAdded);
-		return json;
-	}
+  private int votes;
 
-	@Override
-	public int compareTo(Project compareProject) {
-		int result;
-		if(votes < compareProject.getVotes())
-			result = -1;
-		else if(votes>compareProject.getVotes())
-			result = 1;
-		else
-			result = 0;
-		
-		return result;
-	}
+  public Project(final JsonObject json) {
+    this.name = json.getString("name");
+    this.moneyNeeded = json.getDouble("moneyNeeded");
+    this.moneyAlready = json.getDouble("moneyAlready");
+    this.votes = json.getInteger("votes");
+    this.moneyAdded = 0.0;
+  }
+
+  public JsonObject toJson() {
+    final JsonObject json = new JsonObject();
+    json.put("name", this.name);
+    json.put("moneyNeeded", this.moneyNeeded);
+    json.put("moneyAlready", this.moneyAlready);
+    json.put("votes", this.votes);
+    json.put("moneyAdded", this.moneyAdded);
+    return json;
+  }
+
+  @Override
+  public int compareTo(final Project compareProject) {
+    int result;
+    if (this.votes < compareProject.getVotes())
+      result = 1;
+    else if (this.votes > compareProject.getVotes())
+      result = -1;
+    else
+      result = 0;
+
+    return result;
+  }
 }

@@ -1,6 +1,14 @@
 <html>
 <head>
-
+	<script type="text/javascript">
+		function addRow(){
+			console.log("TODO addRow")
+		}
+		
+		function calculate(){
+			console.log("TODO calculate")
+		}
+	</script>
 </head>
 <body>
 	<h1>Mittelvergabe</h1>
@@ -17,8 +25,10 @@
 			<td><input type="number"/></td>
 			<td><input type="number"/></td>
 			<td><input type="number"/></td>
-			<td><input type="button">+</input></td>
+			<td><input type="button" value="+" onclick="addRow()"/></td>
 		</tr>
 	</table>
+	
+	<input type="button" value="Berechnen" onclick="calculate()"/>
 </body>
 </html>

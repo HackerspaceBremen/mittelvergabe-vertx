@@ -8,7 +8,7 @@
 
 	<properties>
 		<vertx.version>3.2.1</vertx.version>
-		<main.verticle>de.hshb.HttpVerticle</main.verticle>
+		<main.verticle>de.hshb.HttpMain</main.verticle>
 	</properties>
 
 	<dependencies>

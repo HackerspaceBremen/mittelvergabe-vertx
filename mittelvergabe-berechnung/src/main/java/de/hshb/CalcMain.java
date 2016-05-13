@@ -21,10 +21,10 @@ import io.vertx.core.Launcher;
  * @author sliedtke@neusta.de
  * @since 13.05.2016
  */
-public class MainCalcVerticle extends AbstractVerticle {
+public class CalcMain extends AbstractVerticle {
 
   public static void main(final String[] args) {
-    Launcher.main(new String[] { "run", MainCalcVerticle.class.getName(), "-cluster" });
+    Launcher.main(new String[] { "run", CalcMain.class.getName(), "-cluster" });
   }
 
   /**
@@ -41,7 +41,7 @@ public class MainCalcVerticle extends AbstractVerticle {
     Runtime.getRuntime().addShutdownHook(new Thread() {
       @Override
       public void run() {
-        MainCalcVerticle.this.vertx.close();
+        CalcMain.this.vertx.close();
       }
     });
   }

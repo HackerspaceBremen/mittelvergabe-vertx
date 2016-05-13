@@ -34,7 +34,7 @@ public class HttpVerticle extends AbstractVerticle implements Handler<RoutingCon
     // for html, js, css
     router.route().handler(StaticHandler.create());
 
-    this.vertx.createHttpServer().requestHandler(router::accept).listen(8026);
+    this.vertx.createHttpServer().requestHandler(router::accept).listen(8080);
 
   }
 

@@ -24,7 +24,7 @@ import io.vertx.core.Launcher;
 public class MainCalcVerticle extends AbstractVerticle {
 
   public static void main(final String[] args) {
-    Launcher.main(new String[] { "run", MainCalcVerticle.class.getName(), "-ha" });
+    Launcher.main(new String[] { "run", MainCalcVerticle.class.getName(), "-cluster" });
   }
 
   /**

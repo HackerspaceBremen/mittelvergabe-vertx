@@ -24,7 +24,7 @@ import io.vertx.core.Launcher;
 public class MainHttpVerticle extends AbstractVerticle {
 
   public static void main(final String[] args) {
-    Launcher.main(new String[] { "run", MainHttpVerticle.class.getName(), "-ha" });
+    Launcher.main(new String[] { "run", MainHttpVerticle.class.getName(), "-cluster" });
   }
 
   /**

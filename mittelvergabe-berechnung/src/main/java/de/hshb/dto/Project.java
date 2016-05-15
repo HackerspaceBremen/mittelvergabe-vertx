@@ -2,10 +2,12 @@ package de.hshb.dto;
 
 import io.vertx.core.json.JsonObject;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class Project implements Comparable<Project> {
 
 	private String name;

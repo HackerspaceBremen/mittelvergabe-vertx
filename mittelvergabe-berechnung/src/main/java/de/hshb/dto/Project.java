@@ -8,44 +8,49 @@ import lombok.Setter;
 @Setter
 public class Project implements Comparable<Project> {
 
-  private String name;
+	private String name;
 
-  private double moneyNeeded;
+	private double moneyNeeded;
 
-  private double moneyAlready;
+	private double moneyAlready;
 
-  private double moneyAdded;
+	private double moneyAdded;
 
-  private int votes;
+	private int votes;
 
-  public Project(final JsonObject json) {
-    this.name = json.getString("name");
-    this.moneyNeeded = json.getDouble("moneyNeeded");
-    this.moneyAlready = json.getDouble("moneyAlready");
-    this.votes = json.getInteger("votes");
-    this.moneyAdded = 0.0;
-  }
+	public Project(final JsonObject json) {
+		if (!json.containsKey("name") || !json.containsKey("moneyNeeded") || !json.containsKey("moneyAlready")
+				|| !json.containsKey("votes")) {
+			throw new IllegalArgumentException(
+					"The params 'name', 'moneyNeeded', 'moneyAdded' and 'votes' are mandatory");
+		}
+		this.name = json.getString("name");
+		this.moneyNeeded = json.getDouble("moneyNeeded");
+		this.moneyAlready = json.getDouble("moneyAlready");
+		this.votes = json.getInteger("votes");
+		this.moneyAdded = 0.0;
+	}
 
-  public JsonObject toJson() {
-    final JsonObject json = new JsonObject();
-    json.put("name", this.name);
-    json.put("moneyNeeded", this.moneyNeeded);
-    json.put("moneyAlready", this.moneyAlready);
-    json.put("votes", this.votes);
-    json.put("moneyAdded", this.moneyAdded);
-    return json;
-  }
+	public JsonObject toJson() {
+		final JsonObject json = new JsonObject();
+		json.put("name", this.name);
+		json.put("moneyNeeded", this.moneyNeeded);
+		json.put("moneyAlready", this.moneyAlready);
+		json.put("votes", this.votes);
+		json.put("moneyAdded", this.moneyAdded);
+		return json;
+	}
 
-  @Override
-  public int compareTo(final Project compareProject) {
-    int result;
-    if (this.votes < compareProject.getVotes())
-      result = 1;
-    else if (this.votes > compareProject.getVotes())
-      result = -1;
-    else
-      result = 0;
+	@Override
+	public int compareTo(final Project compareProject) {
+		int result;
+		if (this.votes < compareProject.getVotes())
+			result = 1;
+		else if (this.votes > compareProject.getVotes())
+			result = -1;
+		else
+			result = 0;
 
-    return result;
-  }
+		return result;
+	}
 }

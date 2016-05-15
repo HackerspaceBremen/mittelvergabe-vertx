@@ -42,6 +42,7 @@ public class Project implements Comparable<Project> {
 		json.put("moneyAdded", this.moneyAdded);
 		return json;
 	}
+	
 
 	@Override
 	public int compareTo(final Project compareProject) {

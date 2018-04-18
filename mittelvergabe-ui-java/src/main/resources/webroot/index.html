@@ -13,7 +13,7 @@
 
 		var project = row.insertCell(0);
 		project.innerHTML = '<input type="text" />';
-		var needed = row.insertCell(1);
+		var needed = row.insertCell(1); 
 		needed.innerHTML = '<input type="number" step="0.01" min=0/>';
 		var current = row.insertCell(2);
 		current.innerHTML = '<input type="number" step="0.01" min=0/>';
@@ -44,8 +44,8 @@
 	function calculate() {
 
 		var request = new Object();
-		request.availableMoney = parseFloat(document
-				.getElementById("availableMoney").value);
+		request.moneyAvailable = parseFloat(document
+				.getElementById("moneyAvailable").value);
 		request.projects = [];
 		var table = document.getElementById("mittelvergabe");
 		for (var i = 2; i < table.rows.length; i++) {
@@ -93,7 +93,7 @@
 	<h1>Mittelvergabe</h1>
 
 	<p>
-		<u>Mittel zu vergeben:</u> <input id="availableMoney" type="number"
+		<u>Mittel zu vergeben:</u> <input id="moneyAvailable" type="number"
 			step="0.01" min=0 />
 	</p>
 	<br />
